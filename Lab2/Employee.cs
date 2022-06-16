@@ -20,12 +20,13 @@ namespace Lab2_1
             this.EmployeeName = "Undefined";
             this.isFired = false;
         }
-        public Employee(int age, string name, int salary)
+        public Employee(int age, string name, int salary, Company company)
         {
             this.EmployeeAge = age;
             this.EmployeeName = name;
             this.EmployeeSalary = salary;
             this.isFired = false;
+            company.AddEmployee(this);
         }
 
         public void DisplayEmployeeData()
@@ -41,11 +42,12 @@ namespace Lab2_1
             EmployeeSalary += increase;
             Console.WriteLine($"Increasing salary...\nOld salary: {EmployeeSalary - increase}, new salary: {EmployeeSalary}");
         }
-        public void FireEmployee(object? obj)
+        public void FireEmployee(Employee employee, Company company)
         {
             Console.WriteLine($"\nFiring {this.EmployeeName}...");
             this.EmployeeSalary = 0;
             this.isFired = true;
+            company.employees.Remove(employee);
         }
         public override bool Equals(object? obj)
         {

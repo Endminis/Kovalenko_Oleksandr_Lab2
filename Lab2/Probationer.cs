@@ -8,7 +8,7 @@ namespace Lab2_1
 {
      class Probationer : Employee
     {
-        public Probationer(int age, string name, int salary) : base(age, name, salary)
+        public Probationer(int age, string name, int salary, Company company) : base(age, name, salary, company)
         {
             Console.WriteLine($"\nNew probationer was hired:\n    Name: {name}\n    Age: {age}\n    Salary: {salary}\n");
         }
